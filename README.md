@@ -1,5 +1,3 @@
-Here is a **clean, proper, and fully formatted README.md** **ONLY** (as you asked).
-It covers **all required points** from your assignment.
 
 ---
 
