@@ -65,8 +65,8 @@ project/
 ### **📥 1. Clone the Repository**
 
 ```sh
-git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
-cd YOUR-REPO-NAME
+git clone https://github.com/ThahaniHussain/Product-Display.git
+cd Product-Display
 ```
 
 ### **📦 2. Install Dependencies**
@@ -106,7 +106,7 @@ http://localhost:3000
 ## **5. GitHub Repository Link**
 
 Replace with your actual repository link:
-`https://github.com/YOUR-USERNAME/YOUR-REPO-NAME`
+https://github.com/ThahaniHussain/Product-Display.git
 
 ---
 
