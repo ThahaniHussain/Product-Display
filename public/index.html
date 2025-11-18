@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Catalog</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to bottom right, #dff1ff, #e7dbff);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 42px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #7f5dff, #ff5d9e);
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    #loadBtn {
+      background: linear-gradient(90deg, #ffb3f4, #c9b4ff);
+      border: none;
+      padding: 15px 40px;
+      font-size: 20px;
+      font-weight: 600;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #productContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e6e3ff;
+      padding: 5px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 5px 0;
+    }
+
+    .status {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .in-stock {
+      color: green;
+    }
+
+    .out-stock {
+      color: red;
+    }
+
+    .ribbon {
+      position: absolute;
+      top: 10px;
+      right: -15px;
+      background: red;
+      color: white;
+      padding: 5px 40px;
+      transform: rotate(45deg);
+      font-size: 12px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>PRODUCT CATALOG</h1>
+
+  <div class="btn-container">
+    <button id="loadBtn">✨ Load All Products ✨</button>
+  </div>
+
+  <div id="productContainer"></div>
+
+  <script>
+    const products = [
+      {
+        name: "Laptop",
+        category: "Electronics",
+        price: 45000,
+        status: "In Stock",
+        img: "https://i.pinimg.com/originals/73/8f/45/738f454d2d8386b990dec5ef623262a5.jpg"
+      },
+      {
+        name: "Smartphone",
+        category: "Electronics",
+        price: 25000,
+        status: "In Stock",
+        img: "https://s.yimg.com/uu/api/res/1.2/6tptIDiKpIIxEsSAHTrwJw--~B/aD0xMTAyO3c9MTk2MDtzbT0xO2FwcGlkPXl0YWNoeW9u/https://media.zenfs.com/en/techcrunch_350/da422d6fcb5de1bb7721c4bd56e8367d"
+      },
+      {
+        name: "Office Chair",
+        category: "Furniture",
+        price: 8000,
+        status: "Out of Stock",
+        img: "https://static.vecteezy.com/system/resources/thumbnails/027/564/783/small_2x/side-view-of-genuine-leather-office-chair-for-executive-officer-isolated-on-black-background-with-clipping-path-generative-ai-free-photo.jpg"
+      },
+      {
+        name: "bottle",
+        category: "kitchenware",
+        price: 1500,
+        status: "Out of Stock",
+        img: "https://i.pinimg.com/736x/9e/80/e9/9e80e9326ba1b344cc057e0446ac30ab.jpg"
+      },
+      {
+        name: "Water Bottle",
+        category: "Accessories",
+        price: 900,
+        status: "In Stock",
+        img: "https://i.pinimg.com/originals/c4/3d/c8/c43dc810ee9f7c7d93c21b6c4599433b.jpg"
+      }
+    ];
+
+    document.getElementById("loadBtn").addEventListener("click", loadProducts);
+
+    function loadProducts() {
+      const container = document.getElementById("productContainer");
+      container.innerHTML = "";
+
+      products.forEach(p => {
+        container.innerHTML += `
+          <div class="card">
+            ${p.status === "Out of Stock" ? `<div class="Ribbon ribbon">OUT OF STOCK</div>` : ""}
+            <img src="${p.img}" class="product-img" />
+            <div class="title">${p.name}</div>
+            <div class="tag">${p.category}</div>
+            <div class="price">Price: ₹${p.price}</div>
+            <div class="status ${p.status === "In Stock" ? "in-stock" : "out-stock"}">
+              Status: ${p.status}
+            </div>
+          </div>
+        `;
+      });
+    }
+  </script>
+
+</body>
+</html>
